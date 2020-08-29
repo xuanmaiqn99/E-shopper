@@ -35,6 +35,10 @@ class CheckoutController extends Controller
     }
 
     public function checkout(){
-        echo 'checkout';
+        $cate_product = DB::table('category_product')->where('category_status','1')->orderby('category_id', 'desc')->get();
+        $brand_product = DB::table('brand')->where('brand_status','1')->orderby('brand_id', 'desc')->get();
+        return view('page.checkout.checkout')
+        ->with('category',$cate_product)
+        ->with('brand',$brand_product);
     }
 }
