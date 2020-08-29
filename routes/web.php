@@ -73,4 +73,7 @@ Route::post('/save-cart','CartController@save_cart');
 Route::get('/show-cart','CartController@show_cart');
 Route::get('/delete-cart/{rowId}','CartController@delete_cart');
 
+//Checkout
+Route::get('/login-checkout','CheckoutController@login_checkout');
+
 
