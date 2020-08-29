@@ -45,7 +45,7 @@
 								<div class="cart_quantity_button">
 								<form action="{{URL::to('update-cart-quantity')}}" method="POST">
 								{{csrf_field()}}
-									<input class="cart_quantity_input" type="text" name="cart_quantity" value="{{$value_content->qty}}" size="2">
+									<input class="cart_quantity_input" type="number" min="1" name="cart_quantity" value="{{$value_content->qty}}" size="2">
 									<input type="hidden" value="{{$value_content->rowId}}" name="rowId_cart" class="form-control">
 									<input type="submit" value="Update" name="update_qty" class="btn btn-default btn-sm">
 								</form>
