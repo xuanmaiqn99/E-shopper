@@ -29,16 +29,17 @@
 							<a class="btn btn-primary" href="">Continue</a>
 						</div>
 					</div> -->
-					<div class="col-sm-6 clearfix">
+					<div class="col-sm-12 clearfix">
 						<div class="bill-to">
-							<p>Bill To</p>
+							<h2>Bill To</h2>
 							<div class="form-one">
 								<form action="{{URL::to('save-checkout-customer')}}" method="POST">
                                     {{csrf_field()}}
 									<input type="text" name="shipping_name" placeholder="Name*">
 									<input type="email" name="shipping_email" placeholder="Email*">
 									<input type="text" name="shipping_phone" placeholder="Phone*">
-                                    <input type="text" name="shipping_address" placeholder="Address*">
+									<input type="text" name="shipping_address" placeholder="Address*">
+									<textarea name="shipping_note"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
                                     <input type="submit" value="Send" name="send_order" class="btn btn-primary btn-sm">
 								</form>
 							</div>
@@ -74,14 +75,7 @@
 								</form>
 							</div> -->
 						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="order-message">
-							<p>Shipping Notes</p>
-							<textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-							<!-- <label><input type="checkbox"> Shipping to bill address</label> -->
-						</div>	
-					</div>					
+					</div>			
 				</div>
 			</div>
 			<div class="review-payment">

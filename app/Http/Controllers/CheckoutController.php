@@ -41,4 +41,24 @@ class CheckoutController extends Controller
         ->with('category',$cate_product)
         ->with('brand',$brand_product);
     }
+
+    public function save_checkout_customer(Request $request){
+        $data = array();
+        $data['shipping_name'] = $request->shipping_name;
+        $data['shipping_phone'] = $request->shipping_phone;
+        $data['shipping_email'] = $request->shipping_email;
+        $data['shipping_note'] = $request->shipping_note;
+        $data['shipping_address'] = $request->shipping_address;
+
+        $shipping_id = DB::table('shipping')->insertGetId($data);
+
+        Session::put('shipping_id',$shipping_id); 
+        //khi ng dung dky, dang nhap, no se sinh ra 1 phien giao dich
+
+        return Redirect('/payment');
+    }
+
+    public function payment(){
+        
+    }
 }

@@ -96,9 +96,34 @@
 								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> 
 								<!-- ds yeu thich -->
+								<?php
+									$customer_id = Session::get('customer_id');
+									if(($customer_id)!=NULL){
+
+								?>
 								<li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<?php
+							        }else{
+								?>
+									<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i>Checkout</a></li>
+								<?php
+									}
+								?>
 								<li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Login</a></li>
+
+								<?php
+									$customer_id = Session::get('customer_id');
+									if(($customer_id)==NULL){
+
+								?>
+									<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Login</a></li>
+								<?php
+							        }else{
+								?>
+									<li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-lock"></i> Log out</a></li>
+								<?php
+									}
+								?>
 							</ul>
 						</div>
 					</div>
@@ -133,7 +158,7 @@
 										<li><a href="blog.html">Blog List</a></li>
 									</ul>
 								</li>
-								<li><a href="404.html">Product Cart</a></li>
+								<li><a href="{{URL::to('/show-cart')}}">Product Cart</a></li>
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
